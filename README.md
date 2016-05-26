@@ -19,6 +19,7 @@ As a method for FDM, I employ a Operator Spliting Method(OSM). Alternative Direc
 - RAM : DDR3L 16GB PC3-12800
 - Windows 10 Enterprise 64bit
 - Microsoft Visual Studio Community 2015, Microsoft Office 2016
+
 ** Lower version of MS Office will cause a error, because I complied in the latest version of VS. If you have a trouble with this issue, please contact me.
 
 ###Implementation###
