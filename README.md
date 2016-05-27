@@ -42,6 +42,7 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 - Examine the stability of greeks
 - Parallelization for better performance
 - Employ local volatility surface and spot rate curve
+- Exception handling 
 
 ###Reference###
 
