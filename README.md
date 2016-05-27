@@ -10,9 +10,9 @@ The main purpose of this repo is to treat the a few problem as follow.
 - Discontinous payoff : numerical difficulty
 
 ###Numerical Method###
-First, in order to cure the curse of dimensionality, I introduce the non-uniform mesh for FDM. One of existing method for non-uniform is to concentrate the mesh in important area one by one. In this repo, I present a different method for automatic non-uniform mesh construciton by using `asinh (inverse hyperbollic sine)`[3]. This method does not only to concentrate the points in important areas, but also to lie midway between two grids points for increases the accuracy of the FDM[1] at the same time. Second, I introduce the smoothing method to treat numerical difficulty of discountinous payoff. Several methods are already introduced in `smoothing_payoff_FDM`[4] repo. In addition, I apply the `sub-time step` at observation dates of ELS. At first, I consider the Rannacher timestepping[5-6] that is combination of fully implicit and Crank-Nicolson(CN) method with sub-time steps. In spite of merit, it is hard for Ranncher scheme to employ in multidimensional cases due to the property of CN method. Therefore, I apply some trick for time stepping which supplements sub-time steps at observation dates. By so doing, the solutions around each observation date are more accurate.
+First, in order to cure the curse of dimensionality, I introduce the non-uniform mesh for FDM. One of existing method for non-uniform is to concentrate the mesh in important area one by one. In this repo, I present a different method for automatic non-uniform mesh construciton by using `asinh (inverse hyperbollic sine)`[3-4]. This method does not only to concentrate the points in important areas, but also to lie midway between two grids points for increases the accuracy of the FDM[3] at the same time. Second, I introduce the smoothing method to treat numerical difficulty of discountinous payoff. Several methods are already introduced in `smoothing_payoff_FDM`[5] repo. In addition, I apply the `sub-time step` at observation dates of ELS. At first, I consider the Rannacher timestepping[6-7] that is combination of fully implicit and Crank-Nicolson(CN) method with sub-time steps. In spite of merit, it is hard for Ranncher scheme to employ in multidimensional cases due to the property of CN method. Therefore, I apply some trick for time stepping which supplements sub-time steps at observation dates. By so doing, the solutions around each observation date are more accurate.
 
-As a method for FDM, I employ a Operator Spliting Method(OSM). Alternative Direction Implicit(ADI) has a advantage in unconditionally stable solution and second order in time and space. However, ADI with tiny time step has a huge weakness about oscillation of solution as well as greeks[7]. That is why I apply the OSM.
+As a method for FDM, I employ a Operator Spliting Method(OSM). Alternative Direction Implicit(ADI) has a advantage in unconditionally stable solution and second order in time and space. However, ADI with tiny time step has a huge weakness about oscillation of solution as well as greeks[8]. That is why I apply the OSM.
 
 The model I used is classical Black-Scholes which have a constant volatility and interest rate until maturity. However, it is neccessary to deal with volatility surface as well as interest rate curves to price and hedge path-dependant options. Later, I will revise the program.
 
@@ -29,8 +29,13 @@ Next, I apply the trilinear interpolation[8] to provide solutions with respect t
 ###Implementation###
 In order to the easy accessibility of program, I make a Dynamic Linked Library(DLL) file. By using dll, you can easily calculation about 3-asset ELS with `Microsoft Excel`.
 
-###Results###
+- Note that if you would like to use this program, you should use `x64` version of MS Excel. I will upload `x86` version soon.
 
+###Results###
+| # of grid points | 75    | 80    | 85    | 90     |
+|------------------|-------|-------|-------|--------|
+| CPU time(sec)    | 55.56 | 72.08 | 86.95 | 103.78 |
+**Later, I will attach a result of comparison data(price and greeks) with Monte Carlo simulation.
 
 ###Future work###
 - Better smoothing method for discontinous payoff
@@ -46,12 +51,14 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 
 \[3\] Tavella, Domingo, and Curt Randall. Pricing financial instruments: The finite difference method. Vol. 13. John Wiley & Sons, 2000.
 
-\[4\] Venemalm, Johan. "State Equidistant and Time Non-Equidistant Valuation of American Call Options on Stocks With Known Dividends." (2014).
+\[4\] Clarke, Nigel, and Kevin Parrott. "Multigrid for American option pricing with stochastic volatility." Applied Mathematical Finance 6.3 (1999): 177-195.
 
-\[5\] Rannacher, Rolf. "Finite element solution of diffusion problems with irregular data." Numerische Mathematik 43.2 (1984): 309-327.
+\[5\] Venemalm, Johan. "State Equidistant and Time Non-Equidistant Valuation of American Call Options on Stocks With Known Dividends." (2014).
 
-\[6\] Giles, Michael B., and Rebecca Carter. "Convergence analysis of Crank-Nicolson and Rannacher time-marching." (2005).
+\[6\] Rannacher, Rolf. "Finite element solution of diffusion problems with irregular data." Numerische Mathematik 43.2 (1984): 309-327.
 
-\[7\] Jeong, Darae, and Junseok Kim. "A comparison study of ADI and operator splitting methods on option pricing models." Journal of Computational and Applied Mathematics 247 (2013): 162-171.
+\[7\] Giles, Michael B., and Rebecca Carter. "Convergence analysis of Crank-Nicolson and Rannacher time-marching." (2005).
+
+\[8\] Jeong, Darae, and Junseok Kim. "A comparison study of ADI and operator splitting methods on option pricing models." Journal of Computational and Applied Mathematics 247 (2013): 162-171.
 
 \[8\] Trilinear interpotlation, https://en.wikipedia.org/wiki/Trilinear_interpolation
