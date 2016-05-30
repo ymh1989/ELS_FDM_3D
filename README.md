@@ -40,6 +40,7 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 ###Future work###
 - Better smoothing method for discontinous payoff
 - Examine the stability of greeks
+- Weighted average of closing price three or more days prior to maturity (i.e. reduce volatility parameters around maturity)
 - Parallelization for better performance
 - Employ local volatility surface and spot rate curve
 - Exception handling 
