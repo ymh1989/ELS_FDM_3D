@@ -35,7 +35,10 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 | # of grid points | 75    | 80    | 85    | 90     |
 |------------------|-------|-------|-------|--------|
 | CPU time(sec)    | 55.56 | 72.08 | 86.95 | 103.78 |
-**Later, I will attach a result of comparison data(price and greeks) with Monte Carlo simulation.
+****(UPDATED) I will attach a result of comparison data(price and greeks) with Monte Carlo simulation in `zip` file. I highlighted errors which is above 50bp. Plus, figures which are one of solutions and an example of non-uniform, respectively, are also uploaded.**
+
+- Time step size is 1.0/365.0.
+- Some of solutions in early observation dates are very sensitive. I think that it is necessary to modify the smoothing method at ealry observation dates. 
 
 ###Future work###
 - Better smoothing method for discontinous payoff
