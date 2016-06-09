@@ -16,7 +16,7 @@ As a method for FDM, I employ a Operator Spliting Method(OSM). Alternative Direc
 
 The model I used is classical Black-Scholes which have a constant volatility and interest rate until maturity. However, it is neccessary to deal with volatility surface as well as interest rate curves to price and hedge path-dependant options. Later, I will revise the program.
 
-Next, I apply the trilinear interpolation[8] to provide solutions with respect to user-defined underlying price.
+Next, I apply the trilinear interpolation[9] to provide solutions with respect to user-defined underlying price.
 
 ###Environment###
 - CPU : Intel(R) Core(TM) i5-6400 @ 2.7GHZ
@@ -66,4 +66,4 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 
 \[8\] Jeong, Darae, and Junseok Kim. "A comparison study of ADI and operator splitting methods on option pricing models." Journal of Computational and Applied Mathematics 247 (2013): 162-171.
 
-\[8\] Trilinear interpotlation, https://en.wikipedia.org/wiki/Trilinear_interpolation
+\[9\] Trilinear interpotlation, https://en.wikipedia.org/wiki/Trilinear_interpolation
