@@ -16,7 +16,7 @@ As a method for FDM, I employ a Operator Spliting Method(OSM). Alternative Direc
 
 The model I used is classical Black-Scholes which have a constant volatility and interest rate until maturity. However, it is neccessary to deal with volatility surface as well as interest rate curves to price and hedge path-dependant options. Later, I will revise the program.
 
-Next, I apply the trilinear interpolation[9] to provide solutions with respect to user-defined underlying price.
+Next, I apply the trilinear interpolation[9] to provide solutions with respect to user-defined underlying price. However, this method, trilinear interpolation has a drawback that is not consistent with solution profile. Therefore, it is necessary to improve the interpolation method in future works.
 
 ###Environment###
 - CPU : Intel(R) Core(TM) i5-6400 @ 2.7GHZ
@@ -41,7 +41,7 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 - Some of solutions in early observation dates are very sensitive. I think that it is necessary to modify the smoothing method at ealry observation dates. 
 
 ###Future work###
-- Better smoothing method for discontinous payoff
+- Better smoothing method for discontinous payoff, and spline interpolation which is consistent with solution profile
 - Examine the stability of greeks
 - Weighted average of closing price three or more days prior to maturity (i.e. reduce volatility parameters around maturity)
 - Parallelization for better performance
