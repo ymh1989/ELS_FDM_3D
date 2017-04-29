@@ -50,7 +50,7 @@ In order to the easy accessibility of program, I make a Dynamic Linked Library(D
 - Employ local volatility surface and spot rate curve
 - Exception handling 
 
-###Reference###
+### Reference
 
 \[1\] Yoo, Minhyun, et al. "A COMPARISON STUDY OF EXPLICIT AND IMPLICIT NUMERICAL METHODS FOR THE EQUITY-LINKED SECURITIES." 호남수학학술지 37.4 (2015): 441-455.
 
